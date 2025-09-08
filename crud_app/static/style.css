@@ -1,0 +1,119 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f6f8;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container Card */
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Heading */
+h1 {
+  text-align: center;
+  color: #333333;
+  margin-bottom: 25px;
+}
+
+/* Task Form */
+.task-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.task-form input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.task-form button {
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+/* Add & Suggest Buttons */
+.add-btn {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.add-btn:hover {
+  background-color: #45a049;
+}
+
+.suggest-btn {
+  background-color: #2196F3;
+  color: white;
+}
+
+.suggest-btn:hover {
+  background-color: #0b7dda;
+}
+
+/* Task List */
+ul#tasks {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul#tasks li {
+  background-color: #f9f9f9;
+  margin-bottom: 12px;
+  padding: 12px 15px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.2s;
+}
+
+ul#tasks li:hover {
+  background-color: #e8f0fe;
+}
+
+/* Completed Tasks */
+.done {
+  text-decoration: line-through;
+  color: gray;
+}
+
+/* Action Buttons inside tasks */
+ul#tasks li a {
+  margin-left: 8px;
+  font-size: 14px;
+  text-decoration: none;
+  padding: 4px 8px;
+  border-radius: 5px;
+  color: white;
+}
+
+.update-btn {
+  background-color: #FF9800;
+}
+
+.update-btn:hover {
+  background-color: #e68a00;
+}
+
+.delete-btn {
+  background-color: #f44336;
+}
+
+.delete-btn:hover {
+  background-color: #da190b;
+}

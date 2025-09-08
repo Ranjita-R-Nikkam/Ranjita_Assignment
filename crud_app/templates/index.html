@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Flask To-Do Manager</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>To-Do Manager</h1>
+
+    <!-- Add + Suggest Task -->
+    <form action="/add" method="POST" class="task-form">
+      <input type="text" name="task" placeholder="Enter a new task..." required>
+      <button type="submit" class="add-btn">Add Task</button>
+      <button type="button" class="suggest-btn" onclick="suggestTask()">Suggest Task</button>
+    </form>
+
+    <!-- Task List -->
+    <ul id="tasks">
+      {% for task in tasks %}
+        <li>
+          {% if task.done %}
+            <span class="done">{{ task.task }}</span>
+          {% else %}
+            {{ task.task }}
+          {% endif %}
+          <a href="/update/{{ loop.index0 }}" class="update-btn">[Toggle Done]</a>
+          <a href="/delete/{{ loop.index0 }}" class="delete-btn">[Delete]</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <script>
+    async function suggestTask() {
+      try {
+        await fetch("/suggest");
+        window.location.reload(); // Show new task
+      } catch (error) {
+        console.error("Error fetching suggestion:", error);
+      }
+    }
+  </script>
+</body>
+</html>
