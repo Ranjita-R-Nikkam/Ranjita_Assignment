@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Iron Lady Chatbot</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="chatbox">
+    <h2>Iron Lady FAQ Chatbot</h2>
+    <div id="chatlog"></div>
+    <input type="text" id="userInput" placeholder="Ask a question...">
+    <button onclick="sendMessage()">Send</button>
+  </div>
+
+  <script>
+    async function sendMessage() {
+      let userText = document.getElementById("userInput").value;
+      document.getElementById("chatlog").innerHTML += "<p><b>You:</b> " + userText + "</p>";
+      document.getElementById("userInput").value = "";
+
+      const response = await fetch("/get_response", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: userText })
+      });
+
+      const data = await response.json();
+      document.getElementById("chatlog").innerHTML += "<p><b>Bot:</b> " + data.reply + "</p>";
+    }
+  </script>
+</body>
+</html>
+
+
+
